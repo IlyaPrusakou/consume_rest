@@ -10,4 +10,6 @@ public class ConsumingRestApplication {
 		SpringApplication.run(ConsumingRestApplication.class, args);
 	}
 
+
+
 }
