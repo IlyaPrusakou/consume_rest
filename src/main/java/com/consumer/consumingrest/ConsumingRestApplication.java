@@ -26,6 +26,7 @@ public class ConsumingRestApplication {
 		return builder.build();
 	}
 
+	@Bean
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 		return args -> {
 			log.info("before request");
