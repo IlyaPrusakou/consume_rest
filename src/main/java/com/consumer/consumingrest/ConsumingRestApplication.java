@@ -16,13 +16,23 @@ public class ConsumingRestApplication {
 
 
 	public static void main(String[] args) {
+		log.info("11111111111111111Start");
 		SpringApplication.run(ConsumingRestApplication.class, args);
+		log.info("after run");
 	};
+
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
+	}
 
 	public CommandLineRunner run(RestTemplate restTemplate) throws Exception {
 		return args -> {
+			log.info("before request");
 			Quote quote = restTemplate.getForObject("http://localhost:8080/api/random", Quote.class);
+			log.info("after request");
 			log.info(quote.toString());
+			log.info("the end");
 		};
 	}
 
